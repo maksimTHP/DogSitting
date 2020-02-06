@@ -43,5 +43,4 @@ ActiveRecord::Schema.define(version: 2020_02_06_213150) do
     t.index ["dog_id"], name: "index_strolls_on_dog_id"
     t.index ["dogsitter_id"], name: "index_strolls_on_dogsitter_id"
   end
-
 end

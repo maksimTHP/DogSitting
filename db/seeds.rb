@@ -14,17 +14,39 @@ Stroll.destroy_all
 City.destroy_all
 
 15.times do
-City.create(name:Faker::Address.city)
+City.create(
+  name:Faker::Address.city
+)
 end
 
 25.times do
-Dogsitter.create(first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, city_id: City.find(rand(City.first.id..City.last.id)).id)
+Dogsitter.create(
+  first_name:Faker::Name.first_name,
+  last_name:Faker::Name.last_name,
+  city_id: City.find(rand(City.first.id..City.last.id)).id
+)
 end
-
-# 99.times do
-# Stroll.create(dogsitter_id: Dogsitter.find(rand(Dogsitter.first.id..Dogsitter.last.id)).id, dog_id: Dog.find(rand(Dog.first.id..Dog.last.id)).id)
-# end
 
 33.times do
-Dog.create(name:Faker::Creature::Dog.name, city_id: City.find(rand(City.first.id..City.last.id)).id)
+Dog.create(
+  name:Faker::Creature::Dog.name, city_id: City.find(rand(City.first.id..City.last.id)).id
+)
 end
+
+30.times do
+Stroll.create(
+  dogsitter_id: Dogsitter.find(rand(Dogsitter.first.id..Dogsitter.last.id)).id,
+  dog_id: Dog.find(rand(Dog.first.id..Dog.last.id)).id
+)
+end
+
+
+
+=begin #Fernando
+100.times do
+Stroll.create(
+  dogsitter_id: Dogsitter.find(rand(Dogsitter.first.id..Dogsitter.last.id)).id,
+  dog_id: Dog.find(rand(Dog.first.id..Dog.last.id)).id
+)
+end
+=end
